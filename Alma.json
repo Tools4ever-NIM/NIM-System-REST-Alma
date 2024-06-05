@@ -1,0 +1,121 @@
+{
+    "schema": {
+        "options": {},
+        "crud_objects": {
+            "schools": {
+                "operations": {
+                    "schoolsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/district/schools"
+                        },
+                        "processing_options": {
+                            "output_field": "response.schools"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "name": "string*",
+                    "url": "string*",
+                    "stateId": "string*",
+                    "districtId": "string*",
+                    "settings": {
+                        "credits": {
+                            "trackCredits": "_:boolean*",
+                            "defaultCredits": "_:string*"
+                        },
+                        "transcripts": {
+                            "enabled": "_:boolean*",
+                            "courseAllocation": "_:boolean*"
+                        }
+                    },
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "students": {
+                "operations": {
+                    "studentList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/students"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "username": "string*",
+                    "firstName": "string*",
+                    "middleName": "string*",
+                    "lastName": "string*",
+                    "preferredName": "string*",
+                    "schoolId": "string*",
+                    "districtId": "string*",
+                    "stateId": "string*",
+                    "gender": "string*",
+                    "ethnicity": "string*",
+                    "race": ["string*"],
+                    "dob": "string*",
+                    "languages": ["string*"],
+                    "graduationYear": "string*",
+                    "status": "string*",
+                    "externalIds": ["string*"],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "https://{tenant_id}.api.getalma.com",
+            "get": {
+                "query_parameters": {
+                }
+            },
+            "authentication": "digest",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "/district/schools"
+            },
+            "accept": "application/json",
+            "retry": [
+                {
+                    "type": "statusCode",
+                    "statusCode": 429,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 12,
+                        "waitTime": 5
+                    }
+                },
+                {
+                    "type": "connectionError"
+                }
+            ]
+        }
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "tenant_id",
+                "type": "textbox",
+                "label": "Tenant ID:",
+                "value": ""
+            }
+        ]
+        
+    }
+}
