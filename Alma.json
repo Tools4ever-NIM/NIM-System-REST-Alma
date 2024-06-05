@@ -43,18 +43,46 @@
                     "studentList": {
                         "method": "get",
                         "call": {
-                            "path": "/v2/{tenant_id}/students"
+                            "mode": "iteration",
+                            "table": "schools",
+                            "iterator": "id",
+                            "path": "/v2/{iterator}/students",
+                            "base": {
+                                "school_id": "{iterator}"
+                            }
                         },
                         "processing_options": {
                             "output_field": "response"
                         },
                         "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    },
+                    "studentUpdateEmail": {
+                        "method": "put",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/v2/{school_id}/students/{id}/contact/email"
+                        },
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "id",
+                            "school_id",
+                            "email"
+                        ],
+                        "warning_only": [],
+                        "body":{
+                            "_nim_merge_attributes_": true,
+                            "email": [{
+                                "emailAddress": "{email}"
+                            }]
                         }
                     }
                 },
                 "parameters": {},
                 "key": "id",
                 "resources": {
+                    "school_id": "string*",
                     "id": "string*",
                     "username": "string*",
                     "firstName": "string*",
@@ -72,6 +100,39 @@
                     "graduationYear": "string*",
                     "status": "string*",
                     "externalIds": ["string*"],
+                    "created": "string*",
+                    "modified": "string*",
+                    "email": "string"
+                }
+            },
+            "students_contact_email": {
+                "operations": {
+                    "students_contact_emailList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "students",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/students/{iterator}/contact/email"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "email": [
+                        {
+                            "emailAddress": "_:string*"
+                        }
+                    ],
                     "created": "string*",
                     "modified": "string*"
                 }
