@@ -2,6 +2,389 @@
     "schema": {
         "options": {},
         "crud_objects": {
+            "classes": {
+                "operations": {
+                    "householdsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/classes"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "name": "string*",
+                    "code": "string*",
+                    "gradingPeriods": ["string*"],
+                    "schoolYearId": "string*",
+                    "school": "string*",
+                    "type": "string*",
+                    "settings": {
+                        "isHomeroom": "_:boolean*",
+                        "takesAttendance": "_:boolean*"
+                    },
+                    "externalIds": ["string*"],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "classes_teachers": {
+                "operations": {
+                    "studentList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "classes",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/classes/{iterator}",
+                            "base": {
+                                "class_id": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "class_id": "string*",
+                    "id": "string*",
+                    "teacherId": "string*",
+                    "startDate": "string*",
+                    "endDate": "string*",
+                    "firstName": "string*",
+                    "middleName": "string*",
+                    "lastName": "string*"
+                }
+            },
+            "courses": {
+                "operations": {
+                    "householdsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/courses"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "changeLogId": "string*",
+                    "effectiveDate": "string*",
+                    "name": "string*",
+                    "code": "string",
+                    "description": "string*",
+                    "length": "string*",
+                    "gpaScaleId": "string*",
+                    "creditHours": "string*",
+                    "showOnTranscript": "string*",
+                    "creditAllocation": "string*",
+                    "subjectId": "string*",
+                    "schoolYearId": "string*",
+                    "gradeLevelIds": ["string*"],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "district": {
+                "operations": {
+                    "districtList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/district"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "name": "string*",
+                    "url": "string*",
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "households": {
+                "operations": {
+                    "householdsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/households"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "name": "Heiner Household",
+                    "memberIds": "string*",
+                    "modifiedById": "string*",
+                    "created": "string*",
+                    "modified": "string*",
+                    "externalIds": "string*",
+                    "id": "string*"
+                }
+            },
+            "households_contact_addresses": {
+                "operations": {
+                    "parents_contact_addressesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "households",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/households/{iterator}/contact/addresses"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "addresses": [
+                        {
+                            "address": "string*",
+                            "city": "string*",
+                            "country": "string*",
+                            "state": "string*",
+                            "type": "string*",
+                            "zip": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "grade_levels": {
+                "operations": {
+                    "householdsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/grade-levels"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "name": "string*",
+                    "gradeLevelAbbr": "string*",
+                    "equivalent": "string*",
+                    "nonTeaching": "boolean*",
+                    "schoolYearId": "string*",
+                    "changeLogId": "string*",
+                    "effectiveDate": "string*",
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "grading_periods": {
+                "operations": {
+                    "grading_periodsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/grading-periods"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "type": "string*",
+                    "schoolYearId": "string*",
+                    "terms": [
+                            {
+                                "termId": "string*",
+                                "name": "string*",
+                                "abbreviation": "string*",
+                                "startDate": "string*",
+                                "endDate": "string*"
+                            }
+                        ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "parents": {
+                "operations": {
+                    "schoolsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/parents"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "username": "string*",
+                    "firstName": "string*",
+                    "middleName": "string*",
+                    "lastName": "string*",
+                    "preferredName": "string*",
+                    "status": "string*",
+                    "externalIds": "string*",
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "parents_contact_addresses": {
+                "operations": {
+                    "parents_contact_addressesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "parents",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/parents/{iterator}/contact/addresses"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "addresses": [
+                        {
+                            "address": "string*",
+                            "city": "string*",
+                            "country": "string*",
+                            "state": "string*",
+                            "type": "string*",
+                            "zip": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "parents_contact_email": {
+                "operations": {
+                    "parents_contact_emailList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "parents",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/parents/{iterator}/contact/email"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "email": [
+                        {
+                            "emailAddress": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "parents_contact_phones": {
+                "operations": {
+                    "parents_contact_phonesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "parents",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/parents/{iterator}/contact/phones"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "phones": [
+                        {
+                            "number": "string*",
+                            "canSms": "boolean*",
+                            "type": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
             "schools": {
                 "operations": {
                     "schoolsList": {
@@ -34,6 +417,205 @@
                             "courseAllocation": "_:boolean*"
                         }
                     },
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "school_years": {
+                "operations": {
+                    "studentList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "schools",
+                            "iterator": "id",
+                            "path": "/v2/{iterator}/school_years",
+                            "base": {
+                                "school_id": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "name": "string*",
+                    "startDate": "string*",
+                    "endDate": "string*",
+                    "status": "string*",
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "staff": {
+                "operations": {
+                    "staffList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "schools",
+                            "iterator": "id",
+                            "path": "/v2/{iterator}/staff",
+                            "base": {
+                                "school_id": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    },
+                    "staffUpdateEmail": {
+                        "method": "put",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/v2/{school_id}/staff/{id}/contact/email"
+                        },
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "id",
+                            "school_id",
+                            "email"
+                        ],
+                        "warning_only": [],
+                        "body":{
+                            "_nim_merge_attributes_": true,
+                            "email": [{
+                                "emailAddress": "{email}"
+                            }]
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "username": "string*",
+                    "firstName": "string*",
+                    "middleName": "string*",
+                    "lastName": "string*",
+                    "preferredName": "string*",
+                    "schoolId": "string*",
+                    "districtId": "string*",
+                    "stateId": "string*",
+                    "roleId": "string*",
+                    "status": "string*",
+                    "externalIds": ["string*"],
+                    "created": "string*",
+                    "modified": "string*",
+                    "email": "string"
+                }
+            },
+            "staff_contact_addresses": {
+                "operations": {
+                    "staff_contact_addressesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "staff",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/staff/{iterator}/contact/addresses"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "addresses": [
+                        {
+                            "address": "string*",
+                            "city": "string*",
+                            "country": "string*",
+                            "state": "string*",
+                            "type": "string*",
+                            "zip": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "staff_contact_email": {
+                "operations": {
+                    "staff_contact_emailList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "staff",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/staff/{iterator}/contact/email"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "email": [
+                        {
+                            "emailAddress": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "staff_contact_phones": {
+                "operations": {
+                    "staff_contact_phonesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "staff",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/staff/{iterator}/contact/phones"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "phones": [
+                        {
+                            "number": "string*",
+                            "canSms": "boolean*",
+                            "type": "string*"
+                        }
+                    ],
                     "created": "string*",
                     "modified": "string*"
                 }
@@ -105,6 +687,43 @@
                     "email": "string"
                 }
             },
+            "students_contact_addresses": {
+                "operations": {
+                    "students_contact_addressesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "students",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/students/{iterator}/contact/addresses"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "addresses": [
+                        {
+                            "address": "string*",
+                            "city": "string*",
+                            "country": "string*",
+                            "state": "string*",
+                            "type": "string*",
+                            "zip": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
             "students_contact_email": {
                 "operations": {
                     "students_contact_emailList": {
@@ -130,11 +749,159 @@
                     "id": "string*",
                     "email": [
                         {
-                            "emailAddress": "_:string*"
+                            "emailAddress": "string*"
                         }
                     ],
                     "created": "string*",
                     "modified": "string*"
+                }
+            },
+            "students_contact_phones": {
+                "operations": {
+                    "students_contact_phonesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "students",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/students/{iterator}/contact/phones"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "phones": [
+                        {
+                            "number": "string*",
+                            "canSms": "boolean*",
+                            "type": "string*"
+                        }
+                    ],
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "students_enrollment": {
+                "operations": {
+                    "students_enrollmentList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "students",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/students/{iterator}/enrollment"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "codeId": "string*",
+                    "comment": "string*",
+                    "created": "string*",
+                    "creator": "string*",
+                    "date": "string*",
+                    "school": "string*",
+                    "type": "string*"
+                }
+            },
+            "students_programs": {
+                "operations": {
+                    "students_programsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "students",
+                            "iterator": "id",
+                            "path": "/v2/{tenant_id}/students/{iterator}/programs"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "school_id": "string*",
+                    "id": "string*",
+                    "504plan": "boolean*",
+                    "eslell": "boolean*",
+                    "gte": "boolean*",
+                    "iep": "boolean*",
+                    "lunchProgram": "string*",
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "subjects": {
+                "operations": {
+                    "householdsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/subjects"
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "effectiveDate": "string*",
+                    "schoolYearId": "string*",
+                    "name": "string*",
+                    "code": "string*",
+                    "created": "string*",
+                    "modified": "string*"
+                }
+            },
+            "user_roles": {
+                "operations": {
+                    "householdsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/v2/{tenant_id}/households"
+                        },
+                        "processing_options": {
+                            "output_field": "response.userRoles"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "name": "Heiner Household",
+                    "userType": "string*",
+                    "created": "string*",
+                    "modified": "string*",
+                    "id": "string*"
                 }
             }
         }
