@@ -1,5 +1,5 @@
-# NIM-System-REST-Alma
-Alma SIS
+# Alma SIS
+
 
 <img src="https://github.com/Tools4ever-NIM/NIM-System-REST-Alma/assets/24281600/fe0d300a-b498-41d7-b9e8-a1155ed693dc" width="256px">
 
