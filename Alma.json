@@ -429,7 +429,7 @@
                             "mode": "iteration",
                             "table": "schools",
                             "iterator": "id",
-                            "path": "/v2/{iterator}/school_years",
+                            "path": "/v2/{iterator}/school-years",
                             "base": {
                                 "school_id": "{iterator}"
                             }
@@ -882,10 +882,10 @@
             },
             "user_roles": {
                 "operations": {
-                    "householdsList": {
+                    "user_rolesList": {
                         "method": "get",
                         "call": {
-                            "path": "/v2/{tenant_id}/households"
+                            "path": "/v2/{tenant_id}/user-roles"
                         },
                         "processing_options": {
                             "output_field": "response.userRoles"
