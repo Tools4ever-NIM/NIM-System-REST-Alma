@@ -772,7 +772,6 @@
                             "iterator_columns": ["school_id"],
                             "path": "/v2/{school_id}/students/{iterator}/custom-fields",
                             "base": {
-                                "school_id": "{school_id}",
                                 "student_id": "{iterator}"
                             }
                         },
@@ -780,13 +779,61 @@
                             "output_field": "response"
                         },
                         "maxSessionCount": 10,
-                        "warning_only": [500]
+                        "warning_only": [500,403]
+                    },
+                    "students_customfieldsCreate": {
+                        "method": "put",
+                        "semantics": "create",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/v2/{school_id}/students/{student_id}/custom-fields/{id}"
+                        },
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "id",
+                            "school_id",
+                            "student_id",
+                            "value"
+                        ],
+                        "resource_prohibited": [
+                            "name",
+                            "displayName"
+                        ],
+                        "warning_only": [],
+                        "body":{
+                            "_nim_merge_attributes_": false,
+                            "value": "{value}"
+                        }
+                    },
+                    "students_customfieldsUpdate": {
+                        "method": "put",
+                        "semantics": "update",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/v2/{school_id}/students/{student_id}/custom-fields/{id}"
+                        },
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "id",
+                            "school_id",
+                            "student_id",
+                            "value"
+                        ],
+                        "resource_prohibited": [
+                            "name",
+                            "displayName"
+                        ],
+                        "warning_only": [],
+                        "body":{
+                            "_nim_merge_attributes_": false,
+                            "value": "{value}"
+                        }
                     }
                 },
                 "key": "id",
                 "resources": {
                     "id": "string*",
-                    "school_id": "_nim*",
+                    "school_id": "string",
                     "student_id": "_nim*",
                     "name": "string*",
                     "data": {
