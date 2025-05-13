@@ -1,6 +1,5 @@
 {
     "schema": {
-        "options": {},
         "crud_objects": {
             "classes": {
                 "operations": {
@@ -11,12 +10,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -51,12 +47,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "class_id": "string*",
@@ -78,12 +71,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -113,12 +103,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -137,12 +124,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "name": "Heiner Household",
@@ -167,12 +151,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -200,12 +181,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -229,12 +207,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -262,12 +237,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -295,12 +267,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -332,12 +301,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -364,12 +330,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -394,12 +357,9 @@
                         },
                         "processing_options": {
                             "output_field": "response.schools"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -421,6 +381,44 @@
                     "modified": "string*"
                 }
             },
+            "schools_student_customfields": {
+                "operations": {
+                    "studentList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "schools",
+                            "iterator": "id",
+                            "path": "/v2/{iterator}/students/custom-fields/definitions",
+                            "base": {
+                                "school_id": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "maxSessionCount": 20
+                    }
+                },
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "school_id": "_nim*",
+                    "name": "string*",
+                    "state": "string*",
+                    "dataType": "string*",
+                    "multiple": "boolean*",
+                    "options": [
+                        {
+                            "name": "string*",
+                            "value": "string*"
+                        }
+                    ],
+                    "required": "boolean*",
+                    "created": "stirng*",
+                    "modified": "string*"
+                }
+            },
             "school_years": {
                 "operations": {
                     "studentList": {
@@ -437,12 +435,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -471,8 +466,6 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     },
                     "staffUpdateEmail": {
@@ -496,7 +489,6 @@
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -530,12 +522,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -567,12 +556,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -599,12 +585,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -636,8 +619,6 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     },
                     "studentUpdateEmail": {
@@ -661,7 +642,6 @@
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -700,12 +680,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -737,12 +714,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -769,12 +743,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -790,6 +761,87 @@
                     "modified": "string*"
                 }
             },
+            "students_customfields": {
+                "operations": {
+                    "students_customfields": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "students",
+                            "iterator": "id",
+                            "iterator_columns": ["school_id"],
+                            "path": "/v2/{school_id}/students/{iterator}/custom-fields",
+                            "base": {
+                                "student_id": "{iterator}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "response"
+                        },
+                        "maxSessionCount": 10,
+                        "warning_only": [500,403]
+                    },
+                    "students_customfieldsCreate": {
+                        "method": "put",
+                        "semantics": "create",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/v2/{school_id}/students/{student_id}/custom-fields/{id}"
+                        },
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "id",
+                            "school_id",
+                            "student_id",
+                            "value"
+                        ],
+                        "resource_prohibited": [
+                            "name",
+                            "displayName"
+                        ],
+                        "warning_only": [],
+                        "body":{
+                            "_nim_merge_attributes_": false,
+                            "value": "{value}"
+                        }
+                    },
+                    "students_customfieldsUpdate": {
+                        "method": "put",
+                        "semantics": "update",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/v2/{school_id}/students/{student_id}/custom-fields/{id}"
+                        },
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "id",
+                            "school_id",
+                            "student_id",
+                            "value"
+                        ],
+                        "resource_prohibited": [
+                            "name",
+                            "displayName"
+                        ],
+                        "warning_only": [],
+                        "body":{
+                            "_nim_merge_attributes_": false,
+                            "value": "{value}"
+                        }
+                    }
+                },
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "school_id": "string",
+                    "student_id": "_nim*",
+                    "name": "string*",
+                    "data": {
+                        "displayName": "string*",
+                        "value": "string*"
+                    }
+                }
+            },
             "students_enrollment": {
                 "operations": {
                     "students_enrollmentList": {
@@ -803,12 +855,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -835,12 +884,9 @@
                         "processing_options": {
                             "output_field": "response"
                         },
-                        "query_parameters": {
-                        },
                         "maxSessionCount": 20
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "school_id": "string*",
@@ -863,12 +909,9 @@
                         },
                         "processing_options": {
                             "output_field": "response"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "id": "string*",
@@ -889,12 +932,9 @@
                         },
                         "processing_options": {
                             "output_field": "response.userRoles"
-                        },
-                        "query_parameters": {
                         }
                     }
                 },
-                "parameters": {},
                 "key": "id",
                 "resources": {
                     "name": "Heiner Household",
@@ -909,14 +949,11 @@
     "rest": {
         "config": {
             "baseUrl": "https://{tenant_id}.api.getalma.com",
-            "get": {
-                "query_parameters": {
-                }
-            },
+            "get": {},
             "authentication": "digest",
             "call_handling": "generic",
             "test_connection": {
-                "url": "/district/schools"
+                "url": "/v2/{tenant_id}/district/schools"
             },
             "accept": "application/json",
             "retry": [
@@ -940,8 +977,10 @@
             {
                 "name": "tenant_id",
                 "type": "textbox",
-                "label": "Tenant ID:",
-                "value": ""
+                "label": "Customer Name:",
+                "value": "",
+                "tooltip": "Customer Name (e.g. ABCSD)",
+                "order": 1
             }
         ]
         
